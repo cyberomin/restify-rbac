@@ -1,0 +1,4 @@
+coverage
+jest
+docker_logs
+bin

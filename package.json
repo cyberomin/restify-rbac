@@ -1,0 +1,74 @@
+{
+    "name": "base-api",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Alta Labs base API",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "license": "UNLICENSED",
+    "main": "server.js",
+    "scripts": {
+        "start": "NODE_PORT=8080 NODE_PATH=. pm2 start pm2.json",
+        "reload": "NODE_PORT=8080 NODE_PATH=. pm2 reload pm2.json",
+        "start_dev": "NODE_PORT=8080 NODE_PATH=. pm2 start pm2.json --no-daemon --watch",
+        "migrate": "NODE_PATH=. knex migrate:latest",
+        "make": "NODE_PATH=. knex migrate:make --",
+        "rollback": "node ./test/database.js",
+        "rollback_last": "NODE_PATH=. knex migrate:rollback",
+        "lint": "NODE_PATH=. eslint .; exit 0",
+        "test": "bash ./test/test.sh",
+        "resource": "bash resource.sh"
+    },
+    "keywords": [
+        "altalabs",
+        "api",
+        "alta labs"
+    ],
+    "author": "Alta Labs <engineering@altalabs.io>",
+    "dependencies": {
+        "bcrypt": "3.0.0",
+        "bookshelf": "0.13.3",
+        "bugsnag": "2.4.2",
+        "bunyan-winston-adapter": "0.2.0",
+        "handlebars": "4.0.11",
+        "handlebars-intl": "1.1.2",
+        "http-status": "1.2.0",
+        "joi": "13.4.0",
+        "jsonwebtoken": "8.3.0",
+        "knex": "0.15.0",
+        "lodash": "4.17.10",
+        "moment": "2.22.2",
+        "mysql": "2.15.0",
+        "pm2": "3.0.0",
+        "redis-smq": "1.0.20",
+        "restify": "7.2.1",
+        "restify-cors-middleware": "1.1.1",
+        "restify-errors": "6.1.1",
+        "restify-joi-middleware": "5.0.0",
+        "restify-url-semver": "1.1.1",
+        "@sendgrid/mail": "6.3.1",
+        "shortid": "2.2.11",
+        "uuid": "3.3.2",
+        "winston": "3.0.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "8.2.5",
+        "eslint": "4.19.1",
+        "eslint-config-airbnb": "17.0.0",
+        "eslint-plugin-import": "2.13.0",
+        "eslint-plugin-jsx-a11y": "6.1.0",
+        "eslint-plugin-react": "7.10.0",
+        "faker": "4.1.0",
+        "jest": "23.3.0",
+        "knex-cleaner": "1.1.4",
+        "nodemon": "1.17.5",
+        "sinon": "6.1.3",
+        "supertest": "3.1.0"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "verbose": true
+    }
+}

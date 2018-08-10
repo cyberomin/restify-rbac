@@ -1,0 +1,8 @@
+.env
+node_modules/
+app/.DS_Store
+app/data_merge/.DS_Store
+.DS_Store
+
+*.log
+*.retry
