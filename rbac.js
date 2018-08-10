@@ -4,6 +4,11 @@ const includes = require('lodash/includes');
 
 class RBAC {
 
+    /**
+     * Class constructor
+     * @param {Object} admin Holds an object of all routes to be accessed by admin alone
+     * @param {Array} excluded Holds an array of routes that does not need authentication
+     */
     constructor(admin, excluded) {
         this.admin = admin;
         this.excluded = excluded;
