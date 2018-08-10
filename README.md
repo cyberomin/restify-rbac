@@ -5,7 +5,11 @@
 A tiny module that handles RBAC for Restify. 
 
 _Usage_
+To use, locate the file `rbac.js` and move it into your poject folder. Then in your 
+Restify server file, you can require the file and use it as seen below. See the file `server.js` for a working example.
 ```javascript
+const RBAC = require('./rbac');
+
 // Routes that can only be accessed by admins. 
 const admin = {
     '/users': ['GET']
@@ -13,8 +17,6 @@ const admin = {
 
 // Routes that does not need any authentication
 const excludes = ['/login', '/register', '/auth/verify?code=:code'];
-
-const RBAC = require('./rbac');
 
 const rbac = new RBAC(admin, excludes);
 server.use(rbac.checkAuthorization);
